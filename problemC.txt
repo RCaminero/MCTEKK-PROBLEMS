@@ -1,0 +1,22 @@
+# PROBLEM C - Triangle Type
+
+# Use that for create the structure 
+# If you want, you can use https://sqliteonlin e.com/
+CREATE TABLE TRIANGLES(A int, B int, C int);
+INSERT INTO TRIANGLES(A, B, C) VALUES(20,20,23);
+INSERT INTO TRIANGLES(A, B, C) VALUES(20,20,20);
+INSERT INTO TRIANGLES(A, B, C) VALUES(20,21,22);
+INSERT INTO TRIANGLES(A, B, C) VALUES(13,14,30);
+SELECT * from TRIANGLES;
+
+
+
+# Query
+SELECT
+  CASE
+     WHEN (A=B) and (B=C) and (A=C) then 'Equilateral'
+     WHEN (A=B) or (B=C) or (A=C) then 'Isosceles'
+     WHEN (A+B>C) AND (A+C>B) AND (B+C>A) THEN 'Scalene'
+   else 'Not A Triangle'
+  END    
+from TRIANGLES;
